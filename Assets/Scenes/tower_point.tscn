@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsx4wigq5j4jn"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/tower_point.gd" id="1_4r20p"]
+[ext_resource type="Texture2D" uid="uid://b8ny6r07w2n4" path="res://icon.svg" id="1_au4bx"]
+[ext_resource type="PackedScene" uid="uid://cdql6o1rghrd4" path="res://Assets/Scenes/tower_options.tscn" id="3_cnn7k"]
+
+[node name="TowerPoint" type="Node2D"]
+script = ExtResource("1_4r20p")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_au4bx")
+
+[node name="TowerOptions" parent="." instance=ExtResource("3_cnn7k")]
