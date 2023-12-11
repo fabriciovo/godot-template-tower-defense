@@ -13,3 +13,5 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_au4bx")
 
 [node name="TowerOptions" parent="." instance=ExtResource("3_cnn7k")]
+
+[connection signal="spawnTower" from="TowerOptions" to="." method="_on_tower_options_spawn_tower"]

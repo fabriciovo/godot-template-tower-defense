@@ -1,151 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdql6o1rghrd4"]
+[gd_scene load_steps=6 format=3 uid="uid://cdql6o1rghrd4"]
 
 [ext_resource type="Texture2D" uid="uid://b8ny6r07w2n4" path="res://icon.svg" id="1_3tp48"]
 [ext_resource type="Script" path="res://Assets/Scripts/tower_options.gd" id="1_vhqkj"]
-
-[sub_resource type="Animation" id="Animation_aiukj"]
-resource_name = "show_towers"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Tower1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-7.62939e-06, 1.00001), Vector2(-69, 70)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Tower2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-2.71051e-20, 102)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Tower3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(69, 70)]
-}
-
-[sub_resource type="Animation" id="Animation_byyjr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Tower1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-7.62939e-06, 1.00001)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Tower2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-4.54747e-13, 1.00001)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Tower3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(7.62939e-06, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1ayew"]
-resource_name = "hide_towers"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Tower1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-69, 70), Vector2(-7.62939e-06, 1.00001)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Tower2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-2.71051e-20, 102), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Tower3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(69, 70), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_32ycy"]
-_data = {
-"RESET": SubResource("Animation_byyjr"),
-"hide_towers": SubResource("Animation_1ayew"),
-"show_towers": SubResource("Animation_aiukj")
-}
+[ext_resource type="Texture2D" uid="uid://dk2evd87d1vuo" path="res://Sprites/square_left_4.png" id="2_ejt87"]
+[ext_resource type="Script" path="res://Assets/Scripts/create_tower.gd" id="3_20ybo"]
+[ext_resource type="PackedScene" uid="uid://cv03xnigpsc2x" path="res://Assets/Scenes/tower.tscn" id="4_n5ulb"]
 
 [node name="TowerOptions" type="Node2D"]
 script = ExtResource("1_vhqkj")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_32ycy")
-}
+[node name="Selector" type="Sprite2D" parent="."]
+texture = ExtResource("2_ejt87")
 
-[node name="Tower1" type="Sprite2D" parent="."]
-position = Vector2(-7.62939e-06, 1.00001)
-scale = Vector2(0.4, 0.4)
+[node name="Option1" type="Sprite2D" parent="."]
+position = Vector2(-23, 16)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_3tp48")
+script = ExtResource("3_20ybo")
+type = ExtResource("4_n5ulb")
+
+[node name="Option2" type="Sprite2D" parent="."]
+position = Vector2(0, 23)
+scale = Vector2(0.16, 0.16)
 texture = ExtResource("1_3tp48")
 
-[node name="Tower2" type="Sprite2D" parent="."]
-position = Vector2(-4.54747e-13, 1.00001)
-scale = Vector2(0.4, 0.4)
+[node name="Option3" type="Sprite2D" parent="."]
+position = Vector2(23, 16)
+scale = Vector2(0.16, 0.16)
 texture = ExtResource("1_3tp48")
 
-[node name="Tower3" type="Sprite2D" parent="."]
-position = Vector2(7.62939e-06, 1)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_3tp48")
+[connection signal="selectTowerType" from="Option1" to="." method="_on_option_1_select_tower_type"]

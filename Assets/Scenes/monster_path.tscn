@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bygt5qofndj7t"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/monster_path.gd" id="1_o8vef"]
+[ext_resource type="Script" path="res://Assets/Scripts/monster_path_follow.gd" id="1_wr486"]
+[ext_resource type="PackedScene" uid="uid://ba2kujd1oujqn" path="res://Assets/Scenes/monster.tscn" id="2_7an23"]
+
+[sub_resource type="Curve2D" id="Curve2D_wg52v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -172, 327, 0, 0, 0, 0, 418, 325, 0, 0, 0, 0, 414, 26, 0, 0, 0, 0, 1126, 19, 0, 0, 0, 0, 974, 422, 0, 0, 0, 0, 559, 420, 0, 0, 0, 0, 7.88588, 572)
+}
+point_count = 7
+
+[node name="MonsterPath" type="Path2D"]
+position = Vector2(168.293, 0)
+scale = Vector2(0.850539, 1)
+curve = SubResource("Curve2D_wg52v")
+script = ExtResource("1_o8vef")
+
+[node name="MonsterPathFollow" type="PathFollow2D" parent="."]
+position = Vector2(-172, 327)
+rotation = -0.00338982
+rotates = false
+loop = false
+script = ExtResource("1_wr486")
+
+[node name="Monster" parent="MonsterPathFollow" instance=ExtResource("2_7an23")]
+script = null
